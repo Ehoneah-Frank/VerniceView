@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
-import FaviconLogo from "../images/faviconlogo.png";
+import FaviconLogo from "../images/Faviconlogo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
