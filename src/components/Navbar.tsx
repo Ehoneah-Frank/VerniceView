@@ -7,13 +7,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { title: "Home", href: "/" },
-    { title: "About", href: "/about" },
-    { title: "Rooms", href: "/rooms" },
-    // { title: "Amenities", href: "#amenities" },
-    // { title: "Dining", href: "#dining" },
-    { title: "Gallery", href: "/gallery" },
-    { title: "Contact", href: "/contact" },
+    { title: "Home", to: "/" },
+    { title: "About", to: "/about" },
+    { title: "Rooms", to: "/rooms" },
+    // { title: "Amenities", to: "#amenities" },
+    // { title: "Dining", to: "#dining" },
+    { title: "Gallery", to: "/gallery" },
+    { title: "Contact", to: "/contact" },
   ];
 
   return (
@@ -29,13 +29,18 @@ const Navbar = () => {
             </span>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <a href="#" className="hover:text-teal-200">
-              Facebook
+            <a 
+                href="https://facebook.com/veniceviewbeach" 
+                className="hover:text-teal-200"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Facebook
             </a>
-            <a href="#" className="hover:text-teal-200">
+            <a href="https://instagram.com/veniceviewbeach" className="hover:text-teal-200">
               Instagram
             </a>
-            <a href="#" className="hover:text-teal-200">
+            <a href="https://twitter.com/veniceviewbeach" className="hover:text-teal-200">
               Twitter
             </a>
           </div>
@@ -46,7 +51,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-20">
             {/* Logo Section */}
             <div className="flex items-center">
-              <a href="#hero" className="flex items-center space-x-2">
+              <Link to="/" className="flex items-center space-x-2">
                 {/* Favicon Logo */}
                 <img
                   src={FaviconLogo}
@@ -56,19 +61,19 @@ const Navbar = () => {
                 <span className="text-2x2 font-serif text-teal-900">
                   Venice View Beach Resort
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.title}
-                  href={item.href}
+                  to={item.to}
                   className="text-gray-700 hover:text-teal-900 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out"
                 >
                   {item.title}
-                </a>
+                </Link>
               ))}
 
               <Link to="/booking">
@@ -83,6 +88,7 @@ const Navbar = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-gray-700 hover:text-teal-900"
+                aria-label={isOpen ? "Close menu" : "Open menu"}
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -95,17 +101,20 @@ const Navbar = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.title}
-                  href={item.href}
+                  to={item.to}
                   className="text-gray-700 hover:text-teal-900 block px-3 py-2 rounded-md text-base font-medium"
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.title}
-                </a>
+                </Link>
               ))}
-              <button className="w-full bg-teal-900 text-white px-6 py-2 rounded-md hover:bg-teal-800 transition duration-150 ease-in-out">
-                Book Now
-              </button>
+              <Link to="/booking" className="w-full">
+                <button className="w-full bg-teal-900 text-white px-6 py-2 rounded-md hover:bg-teal-800 transition duration-150 ease-in-out">
+                  Book Now
+                </button>
+              </Link>
             </div>
           </div>
         )}

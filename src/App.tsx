@@ -5,8 +5,6 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Rooms from "./components/Rooms";
 import Amenities from "./components/Amenities";
-// import Dining from "./components/Dining";
-// import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import GalleryPage from "./pages/GalleryPage";
 import AboutPage from "./pages/AboutPage";
@@ -32,8 +30,6 @@ function App() {
                   <About />
                   <Rooms />
                   <Amenities />
-                  {/* <Dining /> */}
-                  {/* <Gallery /> */}
                   <Contact />
                 </>
               }
