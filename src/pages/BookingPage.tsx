@@ -179,7 +179,8 @@ const StyledWrapper = styled.div`
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
-    width: 50%;
+    width: 90%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -204,7 +205,14 @@ const StyledWrapper = styled.div`
 
   .row {
     display: flex;
+    flex-direction: column;
     gap: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .row {
+      flex-direction: row;
+    }
   }
 
   .group.half {
